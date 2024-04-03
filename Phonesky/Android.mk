@@ -1,0 +1,28 @@
+LOCAL_PATH := $(call my-dir)
+
+include $(CLEAR_VARS)
+
+LOCAL_MODULE := Phonesky
+LOCAL_SRC_FILES := Phonesky.apk
+LOCAL_CERTIFICATE := PRESIGNED
+LOCAL_PRIVILEGED_MODULE := true
+LOCAL_PRODUCT_SPECIFIC := true
+LOCAL_DEX_PREOPT := false
+LOCAL_PREBUILT_STATIC_JAVA_LIBRARIES := true
+LOCAL_REQUIRED_MODULES := org.microG.xml privapp-permissions-org.microG.xml
+
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := org.microG.xml
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_PATH := $(TARGET_OUT_SYSTEM_ETC)/sysconfig
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := privapp-permissions-org.microG.xml
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_PATH := $(TARGET_OUT_SYSTEM_ETC)/permissions
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
